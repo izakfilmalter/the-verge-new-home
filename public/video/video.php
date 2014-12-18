@@ -14,9 +14,16 @@
             <a href="" class="video__featured-link"></a>
         </li>
         <li class="video__featured-video">
-            <a href="" class="video__featured-link"></a></li>
-        <li class="video__featured-video"><a href="" class="video__featured-link"></a></li>
-        <li class="video__featured-video"><a href="" class="video__featured-link"></a></li>
-        <li class="video__featured-video"><a href="" class="video__featured-link"></a></li>
+            <a href="" class="video__featured-link"></a>
+        </li>
+        <li class="video__featured-video">
+            <a href="" class="video__featured-link"></a>
+        </li>
+        <li class="video__featured-video">
+            <a href="" class="video__featured-link"></a>
+        </li>
+        <li class="video__featured-video">
+            <a href="" class="video__featured-link"></a>
+        </li>
     </ul>
 </div>

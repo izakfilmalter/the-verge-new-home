@@ -9,14 +9,6 @@ module.exports = function(grunt) {
         files: {
           'public/css/style-dev.css': 'sass/style-development.sass'
         }
-      },
-      production: {
-        options: {
-          style: 'expanded'
-        },
-        files: {
-          'public/css/style-pro.css': 'sass/style-production.sass'
-        }
       }
     },
 

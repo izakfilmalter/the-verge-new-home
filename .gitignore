@@ -2,7 +2,8 @@
 # Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
 
 .sass-cache
+.vagrant
 
 node_modules
 
-public/css/fonts.css
+public/css/
