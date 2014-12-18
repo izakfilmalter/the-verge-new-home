@@ -1,8 +1,8 @@
 <div class="video-container">
-    <div class="video__bar">
+    <div class="video__header">
         svg-logo
         <h1 class="video__title">Name of Video <a href="#" class="video__title-link">Watch Now</a></h1>
-        <a href="#" class="video__bar-link">See More<span class="-color-pomegranate">Videos</span></a>
+        <a href="#" class="video__header-link">See More<span class="-color-pomegranate">Videos</span></a>
     </div>
 
     <div class="video__player">
