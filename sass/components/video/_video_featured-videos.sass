@@ -1,0 +1,36 @@
+.video__featured-videos
+    background: #ccc
+
+    margin: 0
+
+    height: $video-player-height
+    width: ((100% / 3) * 1)
+
+.video__featured-video
+    background-color: $mine-shaft
+
+    height: ($video-player-height / 5)
+
+    &:hover
+        background-color: lighten($mine-shaft, 10%)
+
+        .video__title
+            @extend %color-pomegranate
+
+.video__featured-link
+    @extend %display-flex
+    @extend %flexflow-row-nowrap
+
+    &:hover
+        text-decoration: none
+
+    .video__title
+        margin: auto 1rem
+
+.video__featured-thumbnail
+    @extend %background-cover
+
+    @extend %image-box-shadow
+
+    height: 100%
+    width: $video-thumbnail-width

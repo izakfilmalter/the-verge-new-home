@@ -9,18 +9,18 @@
     </a>
 
     <a href="#" class="hero__item--3">
-        <h2 class="article__title -text-shadow">
+        <h4 class="article__title -text-shadow">
             google is not a real company
-        </h2>
+        </h4>
         <p class="article__author -small">
             By Steve Ballmer
         </p>
     </a>
 
     <a href="#" class="hero__item--6">
-        <h2 class="article__title -text-shadow">
+        <h4 class="article__title -text-shadow">
             linux is not in the public domain
-        </h2>
+        </h4>
         <p class="article__author -small">
             By Steve Ballmer
         </p>
@@ -28,25 +28,25 @@
 
     <div class="hero__scroll">
         <a href="#" class="hero__item--2">
-            <h2 class="article__title -text-shadow">
+            <h4 class="article__title -text-shadow">
                 i don't know what a monopoly is
-            </h2>
+            </h4>
             <p class="article__author -small">
                 By Steve Ballmer
             </p>
         </a>
         <a href="#" class="hero__item--4">
-            <h2 class="article__title -text-shadow">
+            <h4 class="article__title -text-shadow">
                 Developers Developers Developers Developers Developers Developers Developers Developers
-            </h2>
+            </h4>
             <p class="article__author -small">
                 By Steve Ballmer
             </p>
         </a>
         <a href="#" class="hero__item--5">
-            <h2 class="article__title -text-shadow">
+            <h4 class="article__title -text-shadow">
                 Most people steal music
-            </h2>
+            </h4>
             <p class="article__author -small">
                 By Steve Ballmer
             </p>

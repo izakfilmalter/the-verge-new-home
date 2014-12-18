@@ -6,9 +6,9 @@
             </li>
         </ul>
         <a href="#" class="article__link">
-            <h2 class="article__title">
+            <h4 class="article__title">
                 There's no chance that the iPhone is going to get any significant market share.
-            </h2>
+            </h4>
         </a>
 
         <p class="article__meta -small">
@@ -31,9 +31,9 @@
 
     <div class="card--article">
         <a href="#" class="article__link">
-            <h2 class="article__title">
+            <h4 class="article__title">
                 There's no chance that the iPhone is going to get any significant market share.
-            </h2>
+            </h4>
         </a>
 
         <p class="article__meta -small">
@@ -50,9 +50,9 @@
 
     <div class="card--article">
         <a href="#" class="article__link">
-            <h2 class="article__title">
+            <h4 class="article__title">
                 There's no chance that the iPhone is going to get any significant market share.
-            </h2>
+            </h4>
         </a>
 
         <p class="article__meta -small">
@@ -72,9 +72,9 @@
 
     <div class="card--article -quote">
         <a href="#" class="article__link">
-            <h2 class="article__title">
+            <h4 class="article__title">
                 There's no chance that the iPhone is going to get any significant market share.
-            </h2>
+            </h4>
         </a>
 
         <p class="article__meta -small">

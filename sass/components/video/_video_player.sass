@@ -1,0 +1,21 @@
+.video__player
+    @extend %background-cover
+
+    @extend %position-relative
+
+    margin: 0
+
+    height: $video-player-height
+    width: ((100% / 3) * 2)
+
+    +colored-filter
+
+    .video__title
+        text-transform: capitalize
+
+        @extend %position-absolute
+        +position(initial, 1rem, 1rem, 1rem)
+
+        margin: auto
+
+        width: 100%
