@@ -1,20 +1,20 @@
 <html>
 <head>
-    <?php include 'head/head.php'; ?>
+    <?php include 'components/head/head.php'; ?>
 </head>
 
 <body>
 
-<?php include 'nav/nav.php'; ?>
+<?php include 'components/nav/nav.php'; ?>
 
 <div class="container">
     <?php
-        include 'hero/hero.php';
-        include 'video/video.php';
-        include 'cards/cards-one.php';
+        include 'components/hero/hero.php';
+        include 'components/video/video.php';
+        include 'components/cards/cards-one.php';
     ?>
 </div>
 
-<?php include 'footer/footer.php'; ?>
+<?php include 'components/footer/footer.php'; ?>
 </body>
 </html>

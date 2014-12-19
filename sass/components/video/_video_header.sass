@@ -16,15 +16,19 @@
     height: 2rem
     width: 2rem
 
-.video__title
+[class*="video__title"]
+    @extend %color-white
+
     @extend %flex-1
 
+.video__title-header
     margin: 0.5rem auto auto
 
 .video__header-link
+    @extend %color-white
+
     margin: (((15 - 2)/15) + rem) auto auto
 
-.video__title,
+.video__title-header,
 .video__header-link
-    @extend %color-white
     text-transform: uppercase

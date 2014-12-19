@@ -31,7 +31,8 @@ module.exports = function(grunt) {
       php: {
         files: [
           'public/*.php',
-          'public/**/*.php'
+          'public/**/*.php',
+          'public/**/**/*.php'
         ]
       },
       options: {
