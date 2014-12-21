@@ -1,3 +1,6 @@
+abbr[title]
+    border-bottom: 1px dotted
+
 h1
     font-size: 3.25rem
 
@@ -37,14 +40,21 @@ a
     line-height: 1.4
 
 a
+    @extend %background-color-transparent
+
     @extend %color-black
     text-decoration: none
 
     @extend %display-inline-block
 
+    &:active
+        @extend %outline-0
+
     &:hover
         @extend %color-pomegranate
         text-decoration: underline
+
+        @extend %outline-0
 
 q
     font-family: ff-din-web-condensed, sans-serif
@@ -54,6 +64,44 @@ q
     text-transform: uppercase
 
     margin: 1.75rem 0 0
+
+b,
+strong
+    @extend %font-weight-bold
+
+dfn
+    font-style: italic
+
+mark
+    background: #ff0
+    @extend %color-black
+
+small
+    font-size: 80%
+
+sub,
+sup
+    font-size: 75%
+    line-height: 0
+
+    @extend %position-relative
+    @extend %vertical-align-baseline
+
+sup
+    top: -0.5em
+
+sub
+    bottom: -0.25rem
+
+pre
+    @extend %overflow-auto
+
+code,
+kbd,
+pre,
+samp
+    font-family: monospace, monospace
+    font-size: 1rem
 
 ul
     list-style: none

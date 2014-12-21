@@ -1,3 +1,19 @@
+// Margin
+$margin: (auto, 0, 100%)
+
+$margin2: (10px, 20px, 30px)
+
+@each $value in $margin
+    .test
+        margin: $value
+
+
+$margin3: $margin, $margin2
+
+@each $value in $margin3
+    .test
+        margin: $value
+
 // Color
 $white: #fff
 $black: #000

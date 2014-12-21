@@ -7,7 +7,32 @@ module.exports = function(grunt) {
           style: 'expanded'
         },
         files: {
-          'public/css/style-dev.css': 'sass/style-development.sass'
+          'src/style.css': 'sass/style-development.sass'
+        }
+      }
+    },
+
+    autoprefixer: {
+      options: {
+        browsers: ['last 2 versions'],
+        map: true,
+      },
+      your_target: {
+        src: 'src/style.css',
+        dest: 'public/css/pre.css'
+      },
+    },
+
+    cssc: {
+      csscFirstSet: {
+        options: {
+          consolidateViaDeclarations: true,
+          consolidateViaSelectors: true,
+          consolidateMediaQueries: true,
+          sort: true
+        },
+        files: {
+          'public/css/style.css' : 'public/css/pre.css'
         }
       }
     },
@@ -26,7 +51,7 @@ module.exports = function(grunt) {
           'sass/**/**/**/*.scss',
           'sass/**/**/**/**/*.scss',
         ],
-        tasks: ['sass']
+        tasks: ['sass', 'autoprefixer']
       },
       php: {
         files: [
@@ -43,6 +68,8 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-cssc');
 
   grunt.registerTask('default', ['watch']);
 
