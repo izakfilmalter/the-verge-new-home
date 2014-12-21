@@ -1,4 +1,4 @@
-<div class="video-container">
+<div class="container video">
     <div class="video__header">
 
         <?php

@@ -29,6 +29,12 @@
     -ms-flex: 1
     flex: 1
 
+%flex-33
+    flex: 1 1 ((100% / 3) * 1)
+
+%flex-66
+    flex: 1 1 ((100% / 3) * 2)
+
 %flexflow-column-nowrap
     +flexflow(column, nowrap)
 
@@ -56,8 +62,47 @@
     bottom: 0
     left: 0
 
+%top-0
+    top: 0
+
+%right-0
+    right: 0
+
+%bottom-0
+    bottom: 0
+
+%left-0
+    left: 0
+
+%margin-0
+    margin: 0
+
+%margin-0-auto
+    margin: 0 auto
+
 %image-box-shadow
     box-shadow: inset 0 0 50px rgba($black, 0.5)
+
+%height-nav-height
+    height: $nav-height
+
+%height-video-player-height
+    height: $video-player-height
+
+%height-100
+    height: 100%
+
+%width-pc-width-2
+    width: ($pc-width - 2px)
+
+%width-100
+    width: 100%
+
+%padding-0
+    padding: 0
+
+%padding-1-5rem
+    padding: 1.5rem
 
 %transition-100ms
     transition: all ease 0.1s

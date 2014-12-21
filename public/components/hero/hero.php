@@ -1,4 +1,4 @@
-<div class="hero-container">
+<div class="container hero">
     <a href="/article/article.php" class="hero__item--1">
         <h2 class="article__title -text-shadow">
             I've got my kids brainwashed

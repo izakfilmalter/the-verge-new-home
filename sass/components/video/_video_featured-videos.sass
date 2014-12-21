@@ -1,11 +1,7 @@
 .video__featured-videos
-    background: #ccc
+    @extend %flex-33
 
-    flex: 1 1 ((100% / 3) * 1)
-
-    margin: 0
-
-    height: $video-player-height
+    @extend %height-video-player-height
 
 .video__featured-video
     background-color: $mine-shaft
@@ -23,7 +19,7 @@
     @extend %flexflow-row-nowrap
 
     &:hover
-        text-decoration: none
+        @extend %text-deceration-none
 
 .video__title-featured
     margin: auto 1rem
@@ -33,5 +29,5 @@
 
     @extend %image-box-shadow
 
-    height: 100%
+    @extend %height-100
     width: $video-thumbnail-width

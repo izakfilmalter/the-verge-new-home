@@ -3,7 +3,7 @@
 
     @extend %color-white
 
-    text-decoration: none
+    @extend %text-deceration-none
 
     @extend %position-absolute
 
@@ -11,10 +11,21 @@
 
     padding: 1.25rem 1.5rem
 
+    &::before
+        @extend %content
+
+        opacity: 0.7
+
+        @extend %position-absolute
+        @extend %position
+
     &:hover
         @extend %color-white
 
-        text-decoration: none
+        @extend %text-deceration-none
+
+        &::before
+            opacity: 0.9
 
 .hero__item--1
     background-image: url('http://ballmeripsum.com/i/?x=341&y=350')
