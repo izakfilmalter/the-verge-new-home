@@ -3,12 +3,11 @@
     <?php include 'components/head/head.php'; ?>
 </head>
 
-<body>
+<body id="home">
 
-<?php include 'components/nav/nav.php'; ?>
-
-<div class="container">
+<div class="main">
     <?php
+        include 'components/nav/nav.php';
         include 'components/hero/hero.php';
         include 'components/video/video.php';
         include 'components/cards/cards-one.php';

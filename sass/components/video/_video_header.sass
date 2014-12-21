@@ -3,10 +3,8 @@
 
     @extend %display-flex
 
-    margin: 0
-
-    height: $video-header-height
-    width: 100%
+    @extend %height-nav-height
+    @extend %width-100
 
     padding: 0 .5rem
 
@@ -22,13 +20,13 @@
     @extend %flex-1
 
 .video__title-header
+    @extend %text-transform-uppercase
+
     margin: 0.5rem auto auto
 
 .video__header-link
+    @extend %text-transform-uppercase
+
     @extend %color-white
 
     margin: (((15 - 2)/15) + rem) auto auto
-
-.video__title-header,
-.video__header-link
-    text-transform: uppercase

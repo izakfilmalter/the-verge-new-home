@@ -7,26 +7,20 @@
     ?>
 </head>
 
-<body>
+<body id="article">
 
-<?php
-    $path = $_SERVER['DOCUMENT_ROOT'];
-    $path .= '/components/nav/nav.php';
-    include_once($path);
-?>
-
-<div class="container">
+<div class="main">
     <?php
         $path = $_SERVER['DOCUMENT_ROOT'];
-        $path .= '/components/hero/hero.php';
+        $path .= '/components/nav/nav.php';
         include_once($path);
 
         $path = $_SERVER['DOCUMENT_ROOT'];
-        $path .= '/components/video/video.php';
+        $path .= '/components/article/article-title.php';
         include_once($path);
 
         $path = $_SERVER['DOCUMENT_ROOT'];
-        $path .= '/components/cards/cards-one.php';
+        $path .= '/components/article/article-body.php';
         include_once($path);
     ?>
 </div>

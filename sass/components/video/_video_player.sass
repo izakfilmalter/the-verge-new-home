@@ -1,20 +1,18 @@
 .video__player
     @extend %background-cover
 
-    flex: 1 1 ((100% / 3) * 2)
+    @extend %flex-66
 
     @extend %position-relative
 
-    margin: 0
-
-    height: $video-player-height
+    @extend %height-video-player-height
 
     +colored-filter
 
 .video__title-player
-    text-transform: capitalize
+    @extend %text-transform-capitalize
 
     @extend %position-absolute
     +position(initial, 1rem, 1rem, 1rem)
 
-    width: 100%
+    @extend %width-100

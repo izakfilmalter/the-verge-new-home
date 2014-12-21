@@ -1,9 +1,7 @@
 .article__labels
     font-family: ff-din-web-condensed, sans-serif
     line-height: 1
-    text-transform: uppercase
-
-    -webkit-font-smoothing: antialiased
+    @extend %text-transform-uppercase
 
     margin: -0.95rem 0 0
 
@@ -13,10 +11,10 @@
 .article__label__link
     @extend %color-white
 
-    background-color: $pomegranate
+    @extend %background-color-pomegranate
 
     padding: 4px 5px 1px
 
     &:hover
         @extend %color-white
-        text-decoration: none
+        @extend %text-deceration-none

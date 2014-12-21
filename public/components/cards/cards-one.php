@@ -1,4 +1,4 @@
-<div class="card-container -one">
+<div class="container card -one">
     <div class="card--article -quote">
         <ul class="article__labels">
             <li class="article__label">
