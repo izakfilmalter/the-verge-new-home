@@ -15,7 +15,7 @@
     width: 2rem
 
 [class*="video__title"]
-    @extend %color-white
+    +color($white)
 
     @extend %flex-1
 
@@ -27,6 +27,6 @@
 .video__header-link
     @extend %text-transform-uppercase
 
-    @extend %color-white
+    +color($white)
 
     margin: (((15 - 2)/15) + rem) auto auto

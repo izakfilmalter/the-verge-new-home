@@ -1,0 +1,29 @@
+$margin: (auto, 0, 100%)
+
+
+=list($value)
+    $length: length($margin)
+    $in-list: ''
+    $value-index: ''
+    $i: 1
+
+    @while $i < $length
+        @if $value == nth($margin, $i)
+            $in-list: true
+            $value-index: $i
+        $i: $i + 1
+
+    @if $in-list == true
+        .test
+            margin: nth($margin, $value-index)
+
+    @else
+        $margin: append(#{$margin}, #{$value}, comma)
+        .test
+            margin: last($margin)
+
++list(1px)
+
++list(10%)
+
++list(100%)

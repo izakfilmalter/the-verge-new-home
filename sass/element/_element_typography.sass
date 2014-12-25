@@ -43,7 +43,7 @@ a
 a
     @extend %background-color-transparent
 
-    @extend %color-black
+    +color($black)
     @extend %text-deceration-none
 
     @extend %display-inline-block
@@ -52,7 +52,7 @@ a
         @extend %outline-0
 
     &:hover
-        @extend %color-pomegranate
+        +color($pomegranate)
         @extend %text-deceration-underline
 
         @extend %outline-0
@@ -74,7 +74,7 @@ dfn
 
 mark
     background: #ff0
-    @extend %color-black
+    +color($black)
 
 small
     font-size: 80%

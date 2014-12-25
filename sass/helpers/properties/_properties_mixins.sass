@@ -1,0 +1,30 @@
+=breakpoint($breakpoint)
+    $value: map-get($breakpoints, $breakpoint)
+
+    @if $value != null
+        $current-breakpoint: $breakpoint !global
+        @media (max-width: $value)
+            @content
+        $current-breakpoint: $default-breakpoint !global
+
+    @else
+        @warn "Invalid breakpoint `#{$breakpoint}`."
+
+=placeholder($name)
+    @if not index($placeholders, $name)
+        $placeholders: append($placeholders, $name) !global
+
+        @at-root
+            @each $breakpoint, $value in $breakpoints
+                @media (max-width: $value)
+                    %#{$name}-#{$breakpoint}
+                        @content
+
+            %#{$name}-#{$default-breakpoint}
+                @content
+
+    @else
+        @warn "Placeholder `#{$name}` already exists."
+
+=_($name)
+    @extend %#{$name}-#{$current-breakpoint}

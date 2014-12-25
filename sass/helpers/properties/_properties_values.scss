@@ -1,0 +1,15 @@
+$debug: true;
+
+$default-breakpoint: root;
+$current-breakpoint: $default-breakpoint;
+
+$placeholders: ();
+
+
+$properties: (
+    color: (
+    ),
+
+    font-size: (
+    )
+) !global;
