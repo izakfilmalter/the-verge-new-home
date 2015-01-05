@@ -4,6 +4,9 @@
 @function last($list)
     @return nth($list, length($list))
 
+@function to-list($value)
+    @return if(type-of($value) != list, ($value,), $value)
+
 @function map-set($map, $key, $value)
     // Create new map called $new, with given key and value
 
@@ -145,6 +148,12 @@
     @else
         // If not found within $list
 
+        $selector: '(' + $selector + ')'
+
+        $test: append(#{$selector}, #{$selector}, comma)
+
+        @debug $test test
+
         @if $length == 0
             // Check if $list is 1 $value
 
@@ -156,7 +165,8 @@
 
         @else
             // Adds new $value and #selector par to $list
-            $list: ($list, ($value, (#{$selector})))
+
+            $list: ($list, (($value), (#{$selector})))
 
             @if $debug
                 @debug $list if false
@@ -166,4 +176,3 @@
 
     @if $debug
         @debug $properties post
-
