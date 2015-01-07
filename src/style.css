@@ -22,4 +22,28 @@
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+.test, .bar, .class {
+  font-size: 1rem;
+}
+
+.foo, .bar, .class {
+  color: #fff;
+}
+
+.foo, .bar, .class, .yar {
+  display: flex;
+}
+
+.foo {
+  font-size: 2rem;
+}
+
+.yar {
+  font-size: 14px;
+}
+
+.test {
+  color: #000;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -30,9 +30,11 @@
     // $length of $list
     $length: length($list)
 
-    @debug $length length function
+    @if $debug-list-has-value
+        @debug $length length function
 
-    @debug $list list function
+    @if $debug-list-has-value
+        @debug $list list function
 
     // While loop to search for $value in $list
     @while $position <= $length
@@ -52,7 +54,8 @@
         // Set $position to one less so we loop back.
         $position: $position + 1
 
-    @debug $found is found
+    @if $debug-list-has-value
+        @debug $found is found
 
     @if $found
         // If found return $index
@@ -66,113 +69,289 @@
     // Grab the selector
     $selector: &
 
-    // Grab the $list key from the $properties map
-    $list: map-get($properties, $property)
+    // Sanatizing the $value for things like calc().
+    $value: "#{$value}"
 
-    // Get $length of $list
-    $length: length($list)
+    @debug start of modern-map
 
-    // Give value to $n
-    $n: 1
+    @if map-has-key($properties, $property) == false
+        // if $property is not in $properties map
 
-    // Set $found to 0
-    $found: ''
+        // Make a valid list
+        $list: $value
+        $list: append($list, #{$selector}, comma)
 
-    @if $debug
-        // Checking if debug is on.
+        @if $debug-modern-map
+            @debug $list list
 
-        // Output name of $selector
-        @debug #{$selector}
+        // Adding $property and its $value, $selector par to the $properties map
+        $properties: map-merge($properties, ($property: $list)) !global
 
-        // Output $value sent to mixin
-        @debug $value value
-
-        // Outputing $list
-        @debug $list list
-
-        // Output $length of $list
-        @debug $length length
-
-    // Search $list for $value
-    @while $n <= $length
-        // Have to double loop to find because list in $list
-
-        // Set $list-values to the $n index in $list
-        $list-values: nth($list, $n)
-
-        @if list-has-value($list-values, $value)
-            // Check if $list-values has $value based on list-has-value function
-
-            // Set $found to $index
-            $found: (list-has-value($list-values, $value) + ($n - 1))
-
-            // Set's $n to $length to exit loop.
-            $n: $length + 1
-
-        // Add one to $n to loop back.
-        $n: $n +1
-
-    @debug $found index/found
-
-    @if $found != ''
-        // Checks if $found has a value
-
-        // List already has selector(s)
-
-        // Set $list-value to the value list within $list
-        $list-value: nth($list, $found)
-
-        @if $debug
-            @debug $list list pre value
-
-            @debug $found list pre index
-
-            @debug $list-value index
-
-        // This one is complicated. Has to be in same line so that list in list get's preserved.
-        // The $list-value has an index of 2. Index 1 is the property value, e.g. #fff.
-        // Index 2 is the comma seperated list of selectors for that propety: value combo.
-        // Append will add out selector to the second index within $list-value and sepperate it
-        // with a comma. $list value now has a new class added to it's list in index 2.
-        $list-value: set-nth(($list-value), 2, (append(nth($list-value, 2), #{$selector}, comma)))
-
-        @if $debug
-            @debug $list-value new list value
-
-        // Replaces $found with new selectors
-        $list: set-nth($list, $found, $list-value)
-
-        @if $debug
-            @debug $list if selector(s)
+        @if $debug-modern-map
+            @debug $properties add to map
 
     @else
-        // If not found within $list
 
-        $selector: '(' + $selector + ')'
+        // Grab the $list key from the $properties map
+        $list: map-get($properties, $property)
 
-        $test: append(#{$selector}, #{$selector}, comma)
+        // Get $length of $list
+        $length: length($list)
 
-        @debug $test test
+        // Give value to $n
+        $n: 1
 
-        @if $length == 0
-            // Check if $list is 1 $value
+        // Set $found to 0
+        $found: ''
 
-            // Remake list with ($value, $selector)
-            $list: ($value, (#{$selector}))
+        @if $debug-modern-map
+            // Checking if debug is on.
 
-            @if $debug
-                @debug $list if has value 1
+            // Output name of $selector
+            @debug #{$selector}
+
+            // Output $value sent to mixin
+            @debug $value value
+
+            // Outputing $list
+            @debug $list list
+
+            // Output $length of $list
+            @debug $length length
+
+        // Search $list for $value
+        @while $n <= $length
+            // Have to double loop to find because list in $list
+
+            // Set $list-values to the $n index in $list
+            $list-values: nth($list, $n)
+
+            @if list-has-value($list-values, $value)
+                // Check if $list-values has $value based on list-has-value function
+
+                // Set $found to $index
+                $found: (list-has-value($list-values, $value) + ($n - 1))
+
+                // Set's $n to $length to exit loop.
+                $n: $length + 1
+
+            // Add one to $n to loop back.
+            $n: $n +1
+
+        @if $debug-modern-map
+            @debug $found index/found
+
+        @if $found != ''
+            // Checks if $found has a value
+
+            // List already has selector(s)
+
+            // Set $list-value to the value list within $list
+            $list-value: nth($list, $found)
+
+            @if $debug-modern-map
+                @debug $list list pre value
+
+                @debug $found list pre index
+
+                @debug $list-value index
+
+            // This one is complicated. Has to be in same line so that list in list get's preserved.
+            // The $list-value has an index of 2. Index 1 is the property value, e.g. #fff.
+            // Index 2 is the comma seperated list of selectors for that propety: value combo.
+            // Append will add out selector to the second index within $list-value and sepperate it
+            // with a comma. $list value now has a new class added to it's list in index 2.
+            $list-value: set-nth(($list-value), 2, (append(nth($list-value, 2), #{$selector}, comma)))
+
+            @if $debug-modern-map
+                @debug $list-value new list value
+
+            // Replaces $found with new selectors
+            $list: set-nth($list, $found, $list-value)
+
+            @if $debug-modern-map
+                @debug $list if selector(s)
 
         @else
-            // Adds new $value and #selector par to $list
+            // If not found within $list
 
-            $list: ($list, (($value), (#{$selector})))
+            @if $length == 0
+                // Check if $list is 1 $value
 
-            @if $debug
-                @debug $list if false
+                // Remake list with ($value, $selector)
+                $list: ($value, (#{$selector}))
 
-    // Overrides $properties globaly with new values for $list
-    $properties: map-set($properties, $property, $list) !global
+                @if $debug-modern-map
+                    @debug $list if has value 1
 
-    @if $debug
-        @debug $properties post
+            @else
+                // Adds new $value and #selector par to $list
+
+                @debug $list pre add
+
+                $type: type-of(nth($list, 1))
+
+                @if $type == string
+                    $list: ($list, (($value), (#{$selector})))
+
+                @else
+
+                    // Make a valid list
+                    $list-2: $value
+                    $list-2: append($list-2, #{$selector}, comma)
+
+
+                    $list: append($list, $list-2, comma)
+
+                @if $debug-modern-map
+                    @debug $list if false
+
+        // Overrides $properties globaly with new values for $list
+        $properties: map-set($properties, $property, $list) !global
+
+        @if $debug-modern-map
+            @debug $properties post
+
+=decompile-map($properties)
+    @debug $properties
+
+    // Each loop through $properties that grabs the $property
+    @each $property in map-keys($properties)
+
+        // Set $values-selectors to the value in $properties form the $property key
+        $values-selectors: map-get($properties, $property)
+        // @debug $property property
+        @debug $values-selectors values-selectors
+
+        // Each loop through $values-selectors that grabs the each single $value-selector
+        @each $value-selector in $values-selectors
+            @debug $value-selector value-selector
+
+            // Grabing type of $value-selector
+            $type: type-of($value-selector)
+
+            @debug $type type of value-selector
+
+            @if $type == list
+                // If $type is a list, there are combinations of orphans and non-orphans.
+
+                // Grab the $value from $value-selector
+                $value: nth($value-selector, 1)
+
+                // Grab the $selector form $value-selector
+                $selector: nth($value-selector, 2)
+
+                // Set $type to type-of($selector)
+                $type: type-of($selector)
+
+                @if $type == list
+                    // If it is a list, it is not an orphan, just output the code.
+
+                    #{$selector}
+                        #{$property}: #{$value}
+
+                @if $type == string
+                    // If it is a string it is an orphan, add it to $orphans
+
+                    @if map-has-key($orphans, $selector)
+                        // Check if $selector already has an orphan.
+
+                        $orphan: map-get($orphans, $selector)
+
+                        @debug $orphan pre search
+
+                        @if list-has-value($orphan, $property) == 0
+                            @debug not found
+
+                            $list: $property
+                            $list: $list, $value
+
+                            $orphans: ($orphan, $list) !global
+
+                    @else
+                        // $selector doesn't have an orphan already.
+
+                        // Make and $orphan map with $selector: $property, $value
+                        $orphan: ($selector: ($property, $value))
+
+                        // Merge $orphans with our $orphan map we just made. Make it global
+                        $orphans: map-merge($orphans, $orphan) !global
+
+                        @debug $orphans my orphans
+
+            @else if $type == string
+                // If $type is a string, there is only one $selector and $value for that property.
+                // This makes it an auto orphan.
+
+                // $value is the 1 index of $values-selectors
+                $value: nth($values-selectors, 1)
+
+                // $selector is the 2 index of $values-selectors
+                $selector: nth($values-selectors, 2)
+
+
+                @if map-has-key($orphans, $selector)
+                    // Check if $selector already has an orphan.
+
+                    $orphan: map-get($orphans, $selector)
+
+                    @debug $orphan pre search
+
+                    @if list-has-value($orphan, $property) == 0
+                        @debug not found
+
+                        $list: $property
+                        $list: $list, $value
+
+                        $orphans: ($orphan, $list) !global
+
+                @else
+                    // This is $selectors first orphan
+
+                    // Make an $orphan map out of $selector: $property, $value
+                    $orphan: ($selector: ($property, $value))
+
+                    // Merge $orphan into $orphans
+                    $orphans: map-merge($orphans, $orphan) !global
+
+                    @debug $orphans my orphans
+
+
+    @each $selector in map-keys($orphans)
+
+        $selector-property-key: map-get($orphans, $selector)
+
+        @debug $selector-property-key selector-property-key
+
+        $property: nth($selector-property-key, 1)
+
+        $value: nth($selector-property-key, 2)
+
+
+        #{$selector}
+            #{$property}: #{$value}
+
+
+
+    @debug $orphans orphans
+
+
+
+
+// for each key in properties
+//     if selector list is more than 1
+//         pump out comma seperated list of selectors
+//             property: value - done
+
+//     else
+//         if orphans map has selector as a key.
+//             add property: value to orphans map for that selector
+//         else
+//             make new key in orphans map, selector, and property: value as value in a list
+
+// if orphans
+//     for each selectors in orphans
+//         selector
+//             properties: values....
+
+// (color: ((#000, .test), (#fff, (.foo, .bar))), font-size: ((1rem, (.test, .bar)), (2rem, .foo)), display: ((block, .test), (flex, (.foo, .bar))))

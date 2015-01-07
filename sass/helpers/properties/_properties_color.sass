@@ -11,23 +11,40 @@
 
     +modern-map($value, $property)
 
+=display($value)
+    // Set's $property to color
+    $property: display
+
+    +modern-map($value, $property)
+
 .test
-    // +color($black)
     +font-size(1rem)
+    +color($black)
+
+    +display(block)
 
 .foo
-    // +color($white)
     +font-size(2rem)
+    +color($white)
+
+    +display(flex)
 
 .bar
-    // +color($white)
-    +font-size(3rem)
+    +font-size(1rem)
+    +color($white)
 
-// .three
-//     // +color($white)
-//     +font-size(4rem)
+    +display(flex)
 
-// .two
-//     // +color($black)
-//     +font-size(5rem)
+.class
+    +font-size(1rem)
+    +color($white)
+
+    +display(flex)
+
+.yar
+    +color(grey)
+
+    +font-size(14px)
+
+    +display(flex)
 

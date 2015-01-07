@@ -1,4 +1,6 @@
-$debug: true;
+$debug-modern-map: false;
+$debug-list-has-value: false;
+$debug-decompile-map: true;
 
 $default-breakpoint: root;
 $current-breakpoint: $default-breakpoint;
@@ -6,10 +8,6 @@ $current-breakpoint: $default-breakpoint;
 $placeholders: ();
 
 
-$properties: (
-    color: (
-    ),
+$properties: () !global;
 
-    font-size: (
-    )
-) !global;
+$orphans: () !global;
